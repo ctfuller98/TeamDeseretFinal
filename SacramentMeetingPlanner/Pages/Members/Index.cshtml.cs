@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Data;
 using SacramentMeetingPlanner.Models;
 
-namespace SacramentMeetingPlanner.Pages.Member
+namespace SacramentMeetingPlanner.Pages.Members
 {
     public class IndexModel : PageModel
     {

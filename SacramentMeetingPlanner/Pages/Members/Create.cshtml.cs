@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using SacramentMeetingPlanner.Data;
 using SacramentMeetingPlanner.Models;
 
-namespace SacramentMeetingPlanner.Pages.Member
+namespace SacramentMeetingPlanner.Pages.Members
 {
     public class CreateModel : PageModel
     {

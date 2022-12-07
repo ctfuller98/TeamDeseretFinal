@@ -1,5 +1,5 @@
 ﻿@page
-@model SacramentMeetingPlanner.Pages.Member.CreateModel
+@model SacramentMeetingPlanner.Pages.Members.CreateModel
 
 @{
     ViewData["Title"] = "Create";
@@ -23,9 +23,26 @@
                 <input asp-for="Member.LastName" class="form-control" />
                 <span asp-validation-for="Member.LastName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <!--
+                <div class="form-group">
                 <label asp-for="Member.MemberTitle" class="control-label"></label>
-                <select asp-for="Member.MemberTitle" class="form-control"></select>
+
+                <select asp-for="Member.MemberTitle" class="form-control" asp-items="Model.Title">
+                    <option value="Test">All</option>
+                </select>
+                <span asp-validation-for="Member.MemberTitle" class="text-danger"></span>
+            </div>
+            -->
+            <div class="form-group">
+                <label asp-for="Member.MemberTitle" class="control-label mt-4"></label>
+                <select asp-for="Member.MemberTitle" class="form-select" id="Oak">
+                    <option value="President">President</option>
+                    <option value="Bishop">Bishop</option>
+                    <option value="Elder">Elder</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Patriarch">Patriarch</option>
+                </select>
                 <span asp-validation-for="Member.MemberTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
