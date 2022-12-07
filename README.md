@@ -19,8 +19,8 @@ Speaker subjects
 Follow acceptable programming conventions using C#.
 
 To Do:
-A member table 
-  - A table with members of the ward, can create new, edit or delete members, 
-A hymn enum 
-  - Dropdown to select a hymn, hymns stored as enum? searchable by number or by text
+-A member table 
+  -- A table with members of the ward, can create new, edit or delete members, 
+-A hymn enum 
+  -- Dropdown to select a hymn, hymns stored as enum? searchable by number or by text
   
