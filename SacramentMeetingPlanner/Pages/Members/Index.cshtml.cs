@@ -30,7 +30,6 @@ namespace SacramentMeetingPlanner.Pages.Members
         public async Task OnGetAsync()
         {
             var members = from m in _context.Member select m;
-            //var members1 = from x in _context.Member select x;
 
             /*if (_context.Member != null)
             {
@@ -40,12 +39,10 @@ namespace SacramentMeetingPlanner.Pages.Members
             if (!string.IsNullOrEmpty(SearchString))
             {
                 members = members.Where(s => s.LastName.Contains(SearchString));
-                //members1 = members1.Where(s => s.FirstName.Contains(SearchString));
             }
 
-            //Member = await _context.Member.ToListAsync();
             Member = await members.ToListAsync();
-            //Member = await members1.ToListAsync();
+
         }
     }
 }

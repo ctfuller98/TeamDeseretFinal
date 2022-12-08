@@ -33,6 +33,17 @@
                 <input asp-for="Meeting.SacramentHymnNumber" class="form-control" />
                 <span asp-validation-for="Meeting.SacramentHymnNumber" class="text-danger"></span>
             </div>
+            <!-- Attempt to add speaker form. -->
+            <button id="addRow" type="button" class="btn btn-info">Add Speakers (Pre Rest Hymn)</button>
+            <div class="form-group">
+                <form method="post">
+                    <div id="new-row">
+                        <input type="hidden" id="total" value="0"/>
+                    </div>
+                    <input tupe="submit" class="btn-primary" value="Post"/>
+                </form>
+            </div>
+            <!-- Attempt to add speaker form. -->
             <div class="form-group">
                 <label asp-for="Meeting.RestHymnNumber" class="control-label"></label>
                 <input asp-for="Meeting.RestHymnNumber" class="form-control" />
@@ -76,4 +87,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!-- Add Speaker attempt -->
+    <script>
+    $("#addRow").click(function ()
+    
+    )
+    </script>
+    <!-- Add Speaker attempt -->
 }
