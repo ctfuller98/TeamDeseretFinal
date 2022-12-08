@@ -16,6 +16,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#sleepy {
+    margin-top: 30px;
+}
+
+#create-member-btn {
+    margin: 23px 0 23px 0;
+}
+}
 #flourish {
     display: none;
 }
