@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +21,28 @@ namespace SacramentMeetingPlanner.Pages.Members
         }
 
         public IList<Member> Member { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+        public SelectList WardMembersList { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string WardMembers { get; set; }
 
         public async Task OnGetAsync()
         {
-            if (_context.Member != null)
+            var members = from m in _context.Member select m;
+
+            /*if (_context.Member != null)
             {
                 Member = await _context.Member.ToListAsync();
+            }*/
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                members = members.Where(s => s.LastName.Contains(SearchString)); // || members.Where(s => s.FirstName.Contains(SearchString));
             }
+
+            //Member = await _context.Member.ToListAsync();
+            Member = await members.ToListAsync();
         }
     }
 }
