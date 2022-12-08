@@ -66,5 +66,7 @@ namespace SacramentMeetingPlanner.Models
         [StringLength(100, MinimumLength = 3)]
         [Required]
         public string? Topic { get; set; }
+
+        public Member speaker { get; set; }
     }
 }

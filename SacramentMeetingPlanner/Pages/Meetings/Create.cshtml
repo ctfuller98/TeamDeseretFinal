@@ -1,6 +1,7 @@
 ﻿@page
 @model SacramentMeetingPlanner.Pages.Meetings.CreateModel
 
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -89,9 +90,36 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <!-- Add Speaker attempt -->
     <script>
-    $("#addRow").click(function ()
-    
-    )
+        $("#addRow").click(function () {
+            var rowCount = parseInt($("#total").val());
+            rowCount++;
+            $("#total").val(rowCount);
+            var html = '';
+            html += '<div id="inputRow">';
+            
+            // Create the Speaker drop down list
+            html += '<select class="form-select" id="speaker-list">';
+            forEach (Member as m) {
+                var speaker = $`m.Title m.FirstName m.LastName`;
+                //html += '<input type="text" name="[' + (rowCount - 1) + '].Name"  />';
+                html += '<option value="speaker">['speaker']</option>';
+            }
+            html += '</select>';
+            
+            // Create the topic drown list.
+            html += '<select class="form-select" id="topic-list">';
+            forEach (Member as m) {
+                var talk = m.TalkTopic;
+                //html += '<input type="text" name="[' + (rowCount - 1) + '].Name"  />';
+                html += '<option value="talk">['talk']</option>';
+            }
+            html += '</select>';
+
+            html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
     </script>
     <!-- Add Speaker attempt -->
 }
