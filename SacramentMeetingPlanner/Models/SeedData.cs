@@ -21,6 +21,13 @@ namespace SacramentMeetingPlanner.Models
                     throw new ArgumentNullException("Null SacramentMeetingPlannerContext");
                 }
 
+                // See if there are any Members.
+                if (context.Member.Any())
+                {
+                    // DB has already been seeded.
+                    return;
+                }
+
                 context.Member.AddRange(
                     new Member
                     {
@@ -57,6 +64,7 @@ namespace SacramentMeetingPlanner.Models
                         MemberTitle = Title.Patriarch
                     }
                 );
+                context.SaveChanges();
             }
         }
     }
