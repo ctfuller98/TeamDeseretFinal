@@ -16,10 +16,9 @@ namespace SacramentMeetingPlanner.Models
                            DbContextOptions<SacramentMeetingPlannerContext>>()))
             {
                 // Look for any members.
-                if (context.Member.Any())
+                if (context == null || context.Member == null)
                 {
-                    // DB has been seeded. Do nothing.
-                    return;
+                    throw new ArgumentNullException("Null SacramentMeetingPlannerContext");
                 }
 
                 context.Member.AddRange(
@@ -39,9 +38,24 @@ namespace SacramentMeetingPlanner.Models
 
                     new Member
                     {
+                        FirstName = "Becky",
+                        LastName = "Tieman",
+                        MemberTitle = Title.Sister
+                    },
 
+                    new Member
+                    {
+                        FirstName = "Daren",
+                        LastName = "Tibbitts",
+                        MemberTitle = Title.Brother
+                    },
+
+                    new Member
+                    {
+                        FirstName = "Rick",
+                        LastName = "Smith",
+                        MemberTitle = Title.Patriarch
                     }
-
                 );
             }
         }
