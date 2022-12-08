@@ -1,7 +1,6 @@
 ﻿@page
 @model SacramentMeetingPlanner.Pages.Meetings.CreateModel
 
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -34,17 +33,6 @@
                 <input asp-for="Meeting.SacramentHymnNumber" class="form-control" />
                 <span asp-validation-for="Meeting.SacramentHymnNumber" class="text-danger"></span>
             </div>
-            <!-- Attempt to add speaker form. -->
-            <button id="addRow" type="button" class="btn btn-info">Add Speakers (Pre Rest Hymn)</button>
-            <div class="form-group">
-                <form method="post">
-                    <div id="new-row">
-                        <input type="hidden" id="total" value="0"/>
-                    </div>
-                    <input tupe="submit" class="btn-primary" value="Post"/>
-                </form>
-            </div>
-            <!-- Attempt to add speaker form. -->
             <div class="form-group">
                 <label asp-for="Meeting.RestHymnNumber" class="control-label"></label>
                 <input asp-for="Meeting.RestHymnNumber" class="form-control" />
@@ -66,16 +54,6 @@
                 <span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Meeting.Speaker" class="control-label"></label>
-                <input asp-for="Meeting.Speaker" class="form-control" />
-                <span asp-validation-for="Meeting.Speaker" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.Topic" class="control-label"></label>
-                <input asp-for="Meeting.Topic" class="form-control" />
-                <span asp-validation-for="Meeting.Topic" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -88,38 +66,4 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <!-- Add Speaker attempt -->
-    <script>
-        $("#addRow").click(function () {
-            var rowCount = parseInt($("#total").val());
-            rowCount++;
-            $("#total").val(rowCount);
-            var html = '';
-            html += '<div id="inputRow">';
-            
-            // Create the Speaker drop down list
-            html += '<select class="form-select" id="speaker-list">';
-            forEach (Member as m) {
-                var speaker = $`m.Title m.FirstName m.LastName`;
-                //html += '<input type="text" name="[' + (rowCount - 1) + '].Name"  />';
-                html += '<option value="speaker">['speaker']</option>';
-            }
-            html += '</select>';
-            
-            // Create the topic drown list.
-            html += '<select class="form-select" id="topic-list">';
-            forEach (Member as m) {
-                var talk = m.TalkTopic;
-                //html += '<input type="text" name="[' + (rowCount - 1) + '].Name"  />';
-                html += '<option value="talk">['talk']</option>';
-            }
-            html += '</select>';
-
-            html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
-            html += '</div>';
-
-            $('#newRow').append(html);
-        });
-    </script>
-    <!-- Add Speaker attempt -->
 }

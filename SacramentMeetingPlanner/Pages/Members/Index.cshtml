@@ -5,20 +5,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="mt-4">Deseret Ward</h1>
-<h4>Members</h4>
+<h1>Index</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Create New</a>
+    <a asp-page="Create">Create New</a>
 </p>
-
-<form>
-    <p>
-        Last Name: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
-
 <table class="table">
     <thead>
         <tr>
@@ -30,6 +21,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Member[0].MemberTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Topic)
             </th>
             <th></th>
         </tr>
@@ -45,6 +39,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MemberTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

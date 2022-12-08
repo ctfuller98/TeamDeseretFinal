@@ -54,19 +54,5 @@ namespace SacramentMeetingPlanner.Models
         [StringLength(50, MinimumLength = 3)]
         [Required]
         public string? ClosingPrayer { get; set; }
-
-        [Display(Name = "Speaker")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [StringLength(50, MinimumLength = 3)]
-        [Required]
-        public string? Speaker { get; set; }
-
-        [Display(Name = "Topic")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [StringLength(100, MinimumLength = 3)]
-        [Required]
-        public string? Topic { get; set; }
-
-        public Member speaker { get; set; }
     }
 }
