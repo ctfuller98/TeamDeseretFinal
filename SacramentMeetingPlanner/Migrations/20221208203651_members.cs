@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SacramentMeetingPlanner.Migrations
 {
-    public partial class databasestuff : Migration
+    public partial class members : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,7 +38,7 @@ namespace SacramentMeetingPlanner.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     MemberTitle = table.Column<int>(type: "int", nullable: false),
-                    Topic = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                    TopicChoice = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

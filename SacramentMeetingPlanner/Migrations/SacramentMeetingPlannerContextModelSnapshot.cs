@@ -86,9 +86,8 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<int>("MemberTitle")
                         .HasColumnType("int");
 
-                    b.Property<string>("Topic")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<int>("TopicChoice")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 

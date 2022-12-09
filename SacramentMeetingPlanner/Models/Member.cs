@@ -25,9 +25,7 @@ namespace SacramentMeetingPlanner.Models
         public Title MemberTitle { get; set; }
 
         [Display(Name = "Topic")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [StringLength(100, MinimumLength = 3)]
-        public string? Topic { get; set; }
+        public Topic TopicChoice { get; set; }
     }
 
     public enum Title
