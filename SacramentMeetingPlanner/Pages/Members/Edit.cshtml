@@ -1,4 +1,5 @@
 ﻿@page
+@using SacramentMeetingPlanner.Models
 @model SacramentMeetingPlanner.Pages.Members.EditModel
 
 @{
@@ -25,10 +26,14 @@
                 <span asp-validation-for="Member.LastName" class="text-danger"></span>
             </div>
             <div>
-                <label asp-for="Member.TopicChoice" class="control-label"></label>
-                <input asp-for="Member.TopicChoice" class="form-control" />
+                <label asp-for="Member.MemberTitle" class="control-label"></label>
+                @Html.DropDownList("Member.MemberTitle", Html.GetEnumSelectList<Title>(), "Select Title",new { @class = "form-control" })
                 <span asp-validation-for="Member.TopicChoice" class="text-danger"></span>
-
+            </div>
+            <div>
+                <label asp-for="Member.TopicChoice" class="control-label"></label>
+                @Html.DropDownList("Member.TopicChoice", Html.GetEnumSelectList<Topic>(), "Select Topic",new { @class = "form-control" })
+                <span asp-validation-for="Member.TopicChoice" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
