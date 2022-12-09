@@ -1,4 +1,5 @@
 ﻿@page
+@using SacramentMeetingPlanner.Models
 @model SacramentMeetingPlanner.Pages.Meetings.CreateModel
 
 @{
@@ -23,6 +24,11 @@
                 <input asp-for="Meeting.Conductor" class="form-control" />
                 <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
             </div>
+            <div>
+                <label asp-for="Meeting.Conductor" class="control-label"></label>
+                @Html.DropDownList("Member.ID", Html.GetEnumSelectList<Topic>(), "Select Title",new { @class = "form-control" })
+                <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Meeting.OpeningHymnNumber" class="control-label"></label>
                 <input asp-for="Meeting.OpeningHymnNumber" class="form-control" />
@@ -33,7 +39,9 @@
                 <input asp-for="Meeting.SacramentHymnNumber" class="form-control" />
                 <span asp-validation-for="Meeting.SacramentHymnNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <label>Do you want a rest hymn?</label>
+            <input class="coupon_question" type="checkbox" name="coupon_question" value="0" onchange="valueChanged()" />
+            <div class="form-group" id="restHymn">
                 <label asp-for="Meeting.RestHymnNumber" class="control-label"></label>
                 <input asp-for="Meeting.RestHymnNumber" class="form-control" />
                 <span asp-validation-for="Meeting.RestHymnNumber" class="text-danger"></span>
@@ -66,4 +74,15 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+   <script>
+        $("#restHymn").hide();
+        $(".coupon_question").click(function () {
+            if ($(this).is(":checked")) {
+                $("#restHymn").show();
+            } else {
+                $("#restHymn").hide();
+            }
+        });
+   </script>
 }
