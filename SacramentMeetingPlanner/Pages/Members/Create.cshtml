@@ -1,5 +1,4 @@
 ﻿@page
-@using SacramentMeetingPlanner.Models;
 @model SacramentMeetingPlanner.Pages.Members.CreateModel
 
 @{
@@ -11,40 +10,42 @@
 <h4>Member</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 create-form">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Member.FirstName" class="control-label"></label>
-                <input asp-for="Member.FirstName" class="form-control" />
+            <div class="form-group mt-4">
+                <input asp-for="Member.FirstName" class="form-control" placeholder="First Name" />
                 <span asp-validation-for="Member.FirstName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Member.LastName" class="control-label"></label>
-                <input asp-for="Member.LastName" class="form-control" />
+            <div class="form-group mt-4">
+                <input asp-for="Member.LastName" class="form-control" placeholder="Last Name" />
                 <span asp-validation-for="Member.LastName" class="text-danger"></span>
             </div>
-            <div>
-                <label asp-for="Member.MemberTitle" class="control-label"></label>
-                @Html.DropDownList("Member.MemberTitle", Html.GetEnumSelectList<Title>(), "Select Title",new { @class = "form-control" })
-                <span asp-validation-for="Member.TopicChoice" class="text-danger"></span>
-            </div>
-            <div>
-                <label asp-for="Member.TopicChoice" class="control-label"></label>
-                @Html.DropDownList("Member.TopicChoice", Html.GetEnumSelectList<Topic>(), "Select Topic",new { @class = "form-control" })
-                <span asp-validation-for="Member.TopicChoice" class="text-danger"></span>
+            <div class="form-group mt-4">
+                <select asp-for="Member.MemberTitle" class="form-select" id="title">
+                    <option value="President">President</option>
+                    <option value="Bishop">Bishop</option>
+                    <option value="Elder">Elder</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Patriarch">Patriarch</option>
+                </select>
+                <span asp-validation-for="Member.MemberTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" id="create-member-btn" />
+                <a asp-page="Index" class="btn btn-secondary">Back to List</a>
             </div>
+
         </form>
+
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
