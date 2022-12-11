@@ -5,39 +5,33 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Deseret Ward</h1>
 
-<div>
-    <h4>Member</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+<div class="card border-info mb-3" style="max-width: 50%;">
+    <h4 class="card-header" >Member Details</h4>
+
+    <dl class="row card-body">
+        <dt class="col-sm-2 card-text">
             @Html.DisplayNameFor(model => model.Member.FirstName)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 card-text">
             @Html.DisplayFor(model => model.Member.FirstName)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-2 card-text">
             @Html.DisplayNameFor(model => model.Member.LastName)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 card-text">
             @Html.DisplayFor(model => model.Member.LastName)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-2 card-text">
             @Html.DisplayNameFor(model => model.Member.MemberTitle)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 card-text">
             @Html.DisplayFor(model => model.Member.MemberTitle)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Member.TopicChoice)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Member.TopicChoice)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Member?.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Member?.ID">Edit</a> 
+    <a class="btn btn-secondary" asp-page="./Index">Back to List</a>
 </div>

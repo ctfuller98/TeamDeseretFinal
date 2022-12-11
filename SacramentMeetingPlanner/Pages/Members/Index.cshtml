@@ -5,12 +5,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Deseret Ward</h1>
+<h4>Members</h4>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -22,33 +23,28 @@
             <th>
                 @Html.DisplayNameFor(model => model.Member[0].MemberTitle)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Member[0].TopicChoice)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Member) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemberTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TopicChoice)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Member)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberTitle)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="text-success">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="text-primary">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="text-danger">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
