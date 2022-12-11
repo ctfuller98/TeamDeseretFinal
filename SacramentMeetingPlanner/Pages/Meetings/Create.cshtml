@@ -24,13 +24,9 @@
                 <input asp-for="Meeting.Conductor" class="form-control" />
                 <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
             </div>
-            <div>
-                <label asp-for="Meeting.Conductor" class="control-label"></label>
-                @Html.DropDownList("Member.ID", Html.GetEnumSelectList<Topic>(), "Select Title",new { @class = "form-control" })
-                <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
-            </div>
-            <div class="form-group"> 
-                <input placeholder=" Opening Hymn" asp-for="Meeting.OpeningHymnNumber" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Meeting.OpeningHymnNumber" class="control-label"></label>
+                <input asp-for="Meeting.OpeningHymnNumber" class="form-control" />
                 <span asp-validation-for="Meeting.OpeningHymnNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -59,7 +55,26 @@
                 <label asp-for="Meeting.ClosingPrayer" class="control-label"></label>
                 <input asp-for="Meeting.ClosingPrayer" class="form-control" />
                 <span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
-            </div> 
+            </div>
+
+            <div class="buttons">
+                <a class="showSingle" target="1">Do you have a speaker?</a>
+            </div>
+
+            <div id="div1" class="targetDiv">
+                <div class="form-group">
+                    <label asp-for="Meeting.SpeakerOne" class="control-label"></label>
+                    <input asp-for="Meeting.SpeakerOne" class="form-control" />
+                    <span asp-validation-for="Meeting.SpeakerOne" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Meeting.TopicChoice" class="control-label"></label>
+                    @Html.DropDownList("Meeting.TopicChoice", Html.GetEnumSelectList<Topic>(), "Select Topic",new { @class = "form-control mb-2" })
+                    <span asp-validation-for="Meeting.TopicChoice" class="text-danger"></span>
+                </div>
+            </div>
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
                 <a asp-page="Index" class="btn btn-secondary">Back to List</a>
@@ -70,9 +85,11 @@
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
-   <script>
+    <script>
         $("#restHymn").hide();
         $(".coupon_question").click(function () {
             if ($(this).is(":checked")) {
@@ -81,5 +98,16 @@
                 $("#restHymn").hide();
             }
         });
-   </script>
+
+
+        $('.targetDiv').hide();
+
+        $(function () {
+            $('.showSingle').click(function () {
+                var target = $(this).attr('target');
+                $('#div' + target).toggle('.hide');
+            });
+        });
+    </script>
 }
+
