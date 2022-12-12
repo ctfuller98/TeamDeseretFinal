@@ -22,12 +22,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.Conductor" class="control-label"></label>
-                <input asp-for="Meeting.Conductor" class="form-control" />
+                <select asp-for="Meeting.Conductor" class="form-control" asp-items="Model.CallingMembers"></select>
                 <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.OpeningHymnNumber" class="control-label"></label>
-                <input asp-for="Meeting.OpeningHymnNumber" class="form-control" />
+                <input asp-for="Meeting.OpeningHymnNumber" class="form-control"/>
                 <span asp-validation-for="Meeting.OpeningHymnNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -47,19 +47,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.OpeningPrayer" class="control-label"></label>
-                <input asp-for="Meeting.OpeningPrayer" class="form-control" />
+                <select asp-for="Meeting.OpeningPrayer" class="form-control" asp-items="Model.Members"></select>
                 <span asp-validation-for="Meeting.OpeningPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.ClosingPrayer" class="control-label"></label>
-                <input asp-for="Meeting.ClosingPrayer" class="form-control" />
+                <select asp-for="Meeting.ClosingPrayer" class="form-control" asp-items="Model.Members"></select>
                 <span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
             </div>
 
             @*Speaker One*@
             <div class="form-group">
                 <label asp-for="Meeting.SpeakerOne" class="control-label"></label>
-                <input asp-for="Meeting.SpeakerOne" class="form-control" />
+                <select asp-for="Meeting.SpeakerOne" class="form-control" asp-items="Model.Members"></select>
                 <span asp-validation-for="Meeting.SpeakerOne" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -71,7 +71,7 @@
             @*Speaker Two*@
             <div class="form-group">
                 <label asp-for="Meeting.SpeakerTwo" class="control-label"></label>
-                <input asp-for="Meeting.SpeakerTwo" class="form-control" />
+                <select asp-for="Meeting.SpeakerTwo" class="form-control" asp-items="Model.Members"></select>
                 <span asp-validation-for="Meeting.SpeakerTwo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -83,7 +83,7 @@
             @*Speaker Three*@
             <div class="form-group">
                 <label asp-for="Meeting.SpeakerThree" class="control-label"></label>
-                <input asp-for="Meeting.SpeakerThree" class="form-control" />
+                <select asp-for="Meeting.SpeakerThree" class="form-control" asp-items="Model.Members"></select>
                 <span asp-validation-for="Meeting.SpeakerThree" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -95,7 +95,7 @@
             @*Speaker Four*@
             <div class="form-group">
                 <label asp-for="Meeting.SpeakerFour" class="control-label"></label>
-                <input asp-for="Meeting.SpeakerFour" class="form-control" />
+                <select asp-for="Meeting.SpeakerFour" class="form-control" asp-items="Model.Members"></select>
                 <span asp-validation-for="Meeting.SpeakerFour" class="text-danger"></span>
             </div>
             <div class="form-group">
