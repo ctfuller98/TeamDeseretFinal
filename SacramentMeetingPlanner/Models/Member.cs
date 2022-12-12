@@ -41,6 +41,7 @@ namespace SacramentMeetingPlanner.Models
     public enum Topic
     {
         None = 0,
+        Any = 1,
         Abortion,
         Abuse,
         Addiction,

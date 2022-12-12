@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SacramentMeetingPlanner.Data;
+using SacramentMeetingPlanner.Migrations;
 using SacramentMeetingPlanner.Models;
 
 namespace SacramentMeetingPlanner.Pages.Meetings
@@ -42,7 +43,7 @@ namespace SacramentMeetingPlanner.Pages.Meetings
                 Meeting.SpeakerTwo = "";
                 Meeting.SpeakerThree = "";
                 Meeting.SpeakerFour = "";
-
+                Meeting.TopicChoice = Topic.Any;
             }
 
             _context.Meeting.Add(Meeting);
