@@ -30,8 +30,10 @@ namespace SacramentMeetingPlanner.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ClosingHymn")
-                        .HasColumnType("int");
+                    b.Property<string>("ClosingHymnNumber")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ClosingPrayer")
                         .IsRequired()
@@ -46,19 +48,24 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<DateTime>("MeetingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OpeningHymnNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("OpeningHymnNumber")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("OpeningPrayer")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("RestHymnNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("RestHymnNumber")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("SacramentHymnNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("SacramentHymnNumber")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -83,6 +90,9 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int>("MeetingId")
+                        .HasColumnType("int");
+
                     b.Property<int>("MemberTitle")
                         .HasColumnType("int");
 
@@ -91,7 +101,25 @@ namespace SacramentMeetingPlanner.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("MeetingId");
+
                     b.ToTable("Member");
+                });
+
+            modelBuilder.Entity("SacramentMeetingPlanner.Models.Member", b =>
+                {
+                    b.HasOne("SacramentMeetingPlanner.Models.Meeting", "Meeting")
+                        .WithMany("Members")
+                        .HasForeignKey("MeetingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Meeting");
+                });
+
+            modelBuilder.Entity("SacramentMeetingPlanner.Models.Meeting", b =>
+                {
+                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }

@@ -34,6 +34,7 @@
                 @Html.DropDownList("Member.TopicChoice", Html.GetEnumSelectList<Topic>(), "Select Topic",new { @class = "form-control" })
                 <span asp-validation-for="Member.TopicChoice" class="text-danger"></span>
             </div>
+            <input type="hidden" name="Member.MeetingId" value="@ViewBag.MeetingId">
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

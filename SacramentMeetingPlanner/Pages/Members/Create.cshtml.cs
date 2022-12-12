@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Data;
 using SacramentMeetingPlanner.Models;
 
@@ -19,8 +20,14 @@ namespace SacramentMeetingPlanner.Pages.Members
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
+            ViewData["MeetingId"] = id;
+            var meeting = _context.Meeting.Include(m => m.Members).FirstOrDefault(m => m.Id == id);
+
+            if (meeting == null) return NotFound();
+
+       
             return Page();
         }
 

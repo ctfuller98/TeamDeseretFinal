@@ -15,8 +15,44 @@ namespace SacramentMeetingPlanner.Models
                        serviceProvider.GetRequiredService<
                            DbContextOptions<SacramentMeetingPlannerContext>>()))
             {
-                // Look for any members.
-                if (context == null || context.Member == null)
+                if (!context.Meeting.Any())
+                {
+                    context.AddRange(
+                        new Meeting
+                        {
+                            MeetingDate = DateTime.Now.AddDays(7),
+                            Conductor = "Brad Allen",
+                            OpeningHymnNumber = "Let Us All Press On",
+                            SacramentHymnNumber = "There Is A Greenhill Far Away",
+                            ClosingHymnNumber = "Love One Another",
+                            
+                            OpeningPrayer = "John Jackson",
+                            ClosingPrayer = "Cindy Stutts",
+                            Members = new List<Member>(new[]
+                            {
+                                new Member
+                                {
+                                    FirstName = "Cameron",
+                                    LastName = "Fuller",
+                                    MemberTitle = Title.Bishop,
+                                    TopicChoice = Topic.Abuse
+                                },
+                                new Member
+                                {
+                                    FirstName = "Austin",
+                                    LastName = "Donovan",
+                                    MemberTitle = Title.President,
+                                    TopicChoice = Topic.Suicide
+                                }
+                            })
+                        }
+                    );
+
+                    context.SaveChanges();
+                }
+
+                    // Look for any members.
+                    if (context == null || context.Member == null)
                 {
                     throw new ArgumentNullException("Null SacramentMeetingPlannerContext");
                 }
@@ -28,7 +64,7 @@ namespace SacramentMeetingPlanner.Models
                     return;
                 }
 
-                context.Member.AddRange(
+                /*context.Member.AddRange(
                     new Member
                     {
                         FirstName = "Cameron",
@@ -69,7 +105,7 @@ namespace SacramentMeetingPlanner.Models
                         TopicChoice = Topic.Dating,
                     }
                 );
-                context.SaveChanges();
+                context.SaveChanges();*/
             }
         }
     }

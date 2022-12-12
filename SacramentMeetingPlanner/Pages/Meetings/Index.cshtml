@@ -10,7 +10,75 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
+
+<div class="col">
+    <form method="post" class="form-inline justify-content-md-end">
+        <div class="input-group">
+            <input class="form-control" type="date" asp-for="SearchDate" />
+            <div class="input-group-text">
+                <button class="btn btn-outline-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row row-cols-1 row-cols-lg-2">
+    @foreach (var item in Model.Meeting)
+    {
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center fw-bold">
+                    @item.MeetingDate.ToLongDateString()
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">@Html.DisplayNameFor(modelItem => item.Conductor)</dt>
+                        <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(modelItem => item.Conductor)</dd>
+                    </dl>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">@Html.DisplayNameFor(modelItem => item.OpeningHymnNumber)</dt>
+                        <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(modelItem => item.OpeningHymnNumber)</dd>
+                    </dl>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">@Html.DisplayNameFor(modelItem => item.OpeningPrayer)</dt>
+                        <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(modelItem => item.OpeningPrayer)</dd>
+                    </dl>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">@Html.DisplayNameFor(modelItem => item.SacramentHymnNumber)</dt>
+                        <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(modelItem => item.SacramentHymnNumber)</dd>
+                    </dl>
+                    <dl class="row mb-0">
+                        <dt class="col-12 text-center">Administration of the Sacrament</dt>
+                    </dl>
+                    @*@foreach (var member in item.Members)
+                    {
+                        <dl class="row mb-0">
+
+                            <dd class="col-sm-7 text-sm-end">@member.FirstName @member.LastName - <i>@member.TopicChoice</i> <a asp-page="/Speakers/Edit" asp-route-id="@member.ID"><i class="bi-pencil"></i></a> <a asp-page="/Speakers/Delete" asp-route-id="@member.ID"><i class="bi-trash"></i></a></dd>
+                        </dl>
+                    }*@
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">@Html.DisplayNameFor(modelItem => item.ClosingHymnNumber)</dt>
+                        <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(modelItem => item.ClosingHymnNumber)</dd>
+                    </dl>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">@Html.DisplayNameFor(modelItem => item.ClosingPrayer)</dt>
+                        <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(modelItem => item.ClosingPrayer)</dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-end">
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-warning text-light" asp-page="./Edit" asp-route-id="@item.Id"><i class="bi-pencil"></i> Edit</a> |
+                        <a class="btn btn-success text-light" asp-page="/Members/Create" asp-route-id="@item.Id"><i class="bi-person-plus"></i> Add Speaker</a> |
+                        <a class="btn btn-info text-light" asp-page="./Details" asp-route-id="@item.Id"><i class="bi-list-ul"></i> Details/Print</a> |
+                        <a class="btn btn-danger text-light" asp-page="./Delete" asp-route-id="@item.Id"><i class="bi-trash"></i> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -29,15 +97,14 @@
                 @Html.DisplayNameFor(model => model.Meeting[0].RestHymnNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].ClosingHymn)
+                @Html.DisplayNameFor(model => model.Meeting[0].ClosingHymnNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Meeting[0].OpeningPrayer)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Meeting[0].ClosingPrayer)
-            </th>
-            <th></th>
+          </th>
         </tr>
     </thead>
     <tbody>
@@ -59,7 +126,7 @@
                 @Html.DisplayFor(modelItem => item.RestHymnNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClosingHymn)
+                @Html.DisplayFor(modelItem => item.ClosingHymnNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OpeningPrayer)
@@ -68,11 +135,21 @@
                 @Html.DisplayFor(modelItem => item.ClosingPrayer)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    @foreach (var member in item.Members)
+                    {
+                        <dl class="row mb-0">
+
+                            <dd class="col-sm-7 text-sm-end">@member.FirstName @member.LastName - <i>@member.TopicChoice</i> <a asp-page="/Speakers/Edit" asp-route-id="@member.ID"><i class="bi-pencil"></i></a> <a asp-page="/Speakers/Delete" asp-route-id="@member.ID"><i class="bi-trash"></i></a></dd>
+                        </dl>
+                    }
+            </td>
+            <td>
+                    <a class="btn btn-warning text-light" asp-page="./Edit" asp-route-id="@item.Id"><i class="bi-pencil"></i> Edit</a> |
+                <a class="btn btn-success text-light" asp-page="/Members/Create" asp-route-id="@item.Id"><i class="bi-person-plus"></i> Add Speaker</a> |
+                    <a class="btn btn-info text-light" asp-page="./Details" asp-route-id="@item.Id"><i class="bi-list-ul"></i> Details/Print</a> |
+                    <a class="btn btn-danger text-light" asp-page="./Delete" asp-route-id="@item.Id"><i class="bi-trash"></i> Delete</a>
             </td>
         </tr>
 }
     </tbody>
-</table>
+</table>*@

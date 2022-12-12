@@ -26,6 +26,10 @@ namespace SacramentMeetingPlanner.Models
 
         [Display(Name = "Topic")]
         public Topic TopicChoice { get; set; }
+
+        public int MeetingId { get; set; }
+
+        
     }
 
     public enum Title

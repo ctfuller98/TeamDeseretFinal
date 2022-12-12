@@ -20,6 +20,8 @@ namespace SacramentMeetingPlanner.Pages.Meetings
         }
 
         public IList<Meeting> Meeting { get;set; } = default!;
+        [BindProperty]
+        public DateTime? SearchDate { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -27,6 +29,18 @@ namespace SacramentMeetingPlanner.Pages.Meetings
             {
                 Meeting = await _context.Meeting.ToListAsync();
             }
+        }
+
+        public async Task OnPostAsync()
+        {
+            if (SearchDate == null)
+            {
+            
+                return;
+            }
+            //search logic
+            
+           
         }
     }
 }

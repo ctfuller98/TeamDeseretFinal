@@ -20,26 +20,26 @@ namespace SacramentMeetingPlanner.Models
 
 
         [Display(Name = "Opening Hymn")]
-        [Range(1, 341)]
+        [StringLength(200)]
         [Required]
-        public int OpeningHymnNumber { get; set; }
+        public string OpeningHymnNumber { get; set; }
 
 
         [Display(Name = "Sacrament Hymn")]
-        [Range(1, 341)]
+        [StringLength(200)]
         [Required]
-        public int SacramentHymnNumber { get; set; }
+        public string SacramentHymnNumber { get; set; }
 
 
         [Display(Name = "Rest Hymn")]
-        [Range(1, 341)]
-        public int? RestHymnNumber { get; set; }
+        [StringLength(200)]
+        public string? RestHymnNumber { get; set; }
 
 
         [Display(Name = "Closing Hymn")]
-        [Range(1, 341)]
+        [StringLength(200)]
         [Required]
-        public int ClosingHymn { get; set; }
+        public string ClosingHymnNumber { get; set; }
 
 
         [Display(Name = "Opening Prayer")]
@@ -54,5 +54,7 @@ namespace SacramentMeetingPlanner.Models
         [StringLength(50, MinimumLength = 3)]
         [Required]
         public string? ClosingPrayer { get; set; }
+
+        public ICollection<Member> Members { get; set; }
     }
 }
