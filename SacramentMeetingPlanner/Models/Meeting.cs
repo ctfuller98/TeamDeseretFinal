@@ -14,8 +14,6 @@ namespace SacramentMeetingPlanner.Models
         public DateTime MeetingDate { get; set; }
 
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [StringLength(50, MinimumLength = 3)]
         [Required]
         public string? Conductor { get; set; }
 
@@ -44,15 +42,11 @@ namespace SacramentMeetingPlanner.Models
 
 
         [Display(Name = "Opening Prayer")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [StringLength(50, MinimumLength = 3)]
         [Required]
         public string? OpeningPrayer { get; set; }
 
 
         [Display(Name = "Closing Prayer")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [StringLength(50, MinimumLength = 3)]
         [Required]
         public string? ClosingPrayer { get; set; }
 

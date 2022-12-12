@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Data;
 using SacramentMeetingPlanner.Migrations;
 using SacramentMeetingPlanner.Models;
@@ -20,13 +21,27 @@ namespace SacramentMeetingPlanner.Pages.Meetings
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+            var memberQuery = from m in _context.Member orderby m.LastName select m.FullName;
+            Members = new SelectList(await memberQuery.ToListAsync());
+
+
+            var memberCallingQuery = from m in _context.Member orderby m.LastName select m.CallingAndName;
+             CallingMembers = new SelectList(await memberCallingQuery.ToListAsync());
+            
             return Page();
         }
 
         [BindProperty]
         public Meeting Meeting { get; set; }
+        public SelectList ? Members { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string? MemberList { get; set; }
+
+        //Members with Callings
+        public Meeting CallingMeeting { get; set; }
+        public SelectList? CallingMembers { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD

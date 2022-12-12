@@ -26,6 +26,27 @@ namespace SacramentMeetingPlanner.Models
 
         [Display(Name = "Topic")]
         public Topic TopicChoice { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                var fullName = $"{FirstName} {LastName}";
+
+                return fullName;
+            }
+           
+        }
+
+        public string CallingAndName
+        {
+            get
+            {
+                var callingAndName = $"{MemberTitle} {FirstName} {LastName}";
+
+                return callingAndName; 
+            }
+        }
     }
 
     public enum Title

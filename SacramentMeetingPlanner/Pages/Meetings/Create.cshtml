@@ -21,21 +21,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.Conductor" class="control-label"></label>
-                <input asp-for="Meeting.Conductor" class="form-control" />
+                <select asp-for="Meeting.Conductor" class="form-select" asp-items="Model.CallingMembers">
+                    <option value=""></option>
+                </select>
                 <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.OpeningHymnNumber" class="control-label"></label>
-                <input asp-for="Meeting.OpeningHymnNumber" class="form-control" />
+                <input asp-for="Meeting.OpeningHymnNumber" class="form-control" min="1" />
                 <span asp-validation-for="Meeting.OpeningHymnNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.SacramentHymnNumber" class="control-label"></label>
-                <input asp-for="Meeting.SacramentHymnNumber" class="form-control" />
+                <input asp-for="Meeting.SacramentHymnNumber" class="form-control" min="1" />
                 <span asp-validation-for="Meeting.SacramentHymnNumber" class="text-danger"></span>
             </div>
             <label>Do you want a rest hymn?</label>
-            <input class="coupon_question" type="checkbox" name="coupon_question" value="0" onchange="valueChanged()" />
+            <input class="coupon_question" type="checkbox" name="coupon_question" value="0" min="1" onchange="valueChanged()" />
             <div class="form-group" id="restHymn">
                 <label asp-for="Meeting.RestHymnNumber" class="control-label"></label>
                 <input asp-for="Meeting.RestHymnNumber" class="form-control" />
@@ -48,12 +50,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.OpeningPrayer" class="control-label"></label>
-                <input asp-for="Meeting.OpeningPrayer" class="form-control" />
+                <select asp-for="Meeting.OpeningPrayer" class="form-select" asp-items="Model.Members">
+                    <option value=""></option>
+                </select>
                 <span asp-validation-for="Meeting.OpeningPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.ClosingPrayer" class="control-label"></label>
-                <input asp-for="Meeting.ClosingPrayer" class="form-control" />
+                <select asp-for="Meeting.ClosingPrayer" class="form-select" asp-items="Model.Members">
+                    <option value=""></option>
+                </select>
                 <span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
             </div>
 
