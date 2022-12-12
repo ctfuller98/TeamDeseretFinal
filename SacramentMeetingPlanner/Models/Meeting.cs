@@ -61,14 +61,17 @@ namespace SacramentMeetingPlanner.Models
         [StringLength(50, MinimumLength = 3)]
         public string? SpeakerOne { get; set; }
 
+        [Display(Name = "Speaker Two")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(50, MinimumLength = 3)]
         public string? SpeakerTwo { get; set; }
 
+        [Display(Name = "Speaker Three")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(50, MinimumLength = 3)]
         public string? SpeakerThree { get; set; }
 
+        [Display(Name = "Speaker Four")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(50, MinimumLength = 3)]
         public string? SpeakerFour { get; set; }
@@ -76,8 +79,13 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Topic")]
         public Topic? TopicChoice { get; set; } = 0;
 
-        public Topic? TopicChoiceTwo { get; set; } 
-        public Topic? TopicChoiceThree { get; set; } 
+        [Display(Name = "Topic")]
+        public Topic? TopicChoiceTwo { get; set; }
+
+        [Display(Name = "Topic")]
+        public Topic? TopicChoiceThree { get; set; }
+
+        [Display(Name = "Topic")]
         public Topic? TopicChoiceFour { get; set; } 
     }
 }
