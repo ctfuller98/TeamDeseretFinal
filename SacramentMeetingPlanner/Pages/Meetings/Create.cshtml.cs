@@ -43,6 +43,9 @@ namespace SacramentMeetingPlanner.Pages.Meetings
                 Meeting.SpeakerTwo = "";
                 Meeting.SpeakerThree = "";
                 Meeting.SpeakerFour = "";
+                Meeting.TopicChoiceTwo = null;
+                Meeting.TopicChoiceThree = null;
+                Meeting.TopicChoiceFour = null;
                 Meeting.TopicChoice = Topic.Any;
             }
 

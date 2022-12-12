@@ -74,6 +74,10 @@ namespace SacramentMeetingPlanner.Models
         public string? SpeakerFour { get; set; }
 
         [Display(Name = "Topic")]
-        public Topic TopicChoice { get; set; } = 0;
+        public Topic? TopicChoice { get; set; } = 0;
+
+        public Topic? TopicChoiceTwo { get; set; } 
+        public Topic? TopicChoiceThree { get; set; } 
+        public Topic? TopicChoiceFour { get; set; } 
     }
 }

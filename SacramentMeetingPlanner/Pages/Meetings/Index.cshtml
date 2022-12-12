@@ -83,6 +83,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TopicChoice)
+                    @Html.DisplayFor(modelItem => item.TopicChoiceTwo)<br />
+                    @Html.DisplayFor(modelItem => item.TopicChoiceThree)<br />
+                    @Html.DisplayFor(modelItem => item.TopicChoiceFour)
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
