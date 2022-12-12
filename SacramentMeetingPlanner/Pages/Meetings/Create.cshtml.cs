@@ -36,6 +36,15 @@ namespace SacramentMeetingPlanner.Pages.Meetings
                 return Page();
             }
 
+          if(Meeting.SpeakerOne == "No Speaker" && Meeting.SpeakerTwo == "No Speaker" && Meeting.SpeakerThree == "No Speaker" && Meeting.SpeakerFour == "No Speaker")
+            {
+                Meeting.SpeakerOne = "Fast Sunday";
+                Meeting.SpeakerTwo = "";
+                Meeting.SpeakerThree = "";
+                Meeting.SpeakerFour = "";
+
+            }
+
             _context.Meeting.Add(Meeting);
             await _context.SaveChangesAsync();
 

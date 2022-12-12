@@ -59,6 +59,15 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Meeting.ClosingPrayer)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.SpeakerOne) One
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.SpeakerOne) <br />
+            @Html.DisplayFor(model => model.Meeting.SpeakerTwo) <br />
+            @Html.DisplayFor(model => model.Meeting.SpeakerThree) <br />
+            @Html.DisplayFor(model => model.Meeting.SpeakerFour)
+        </dd>
     </dl>
 </div>
 <div>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Data;
+using SacramentMeetingPlanner.Migrations;
 using SacramentMeetingPlanner.Models;
 
 namespace SacramentMeetingPlanner.Pages.Meetings
