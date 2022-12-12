@@ -4,34 +4,33 @@
 
 namespace SacramentMeetingPlanner.Migrations
 {
-    public partial class AddingSpeakerAndTopic : Migration
+    public partial class SpeakerThreeAndFour : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "SpeakerOne",
+                name: "SpeakerFour",
                 table: "Meeting",
                 type: "nvarchar(50)",
                 maxLength: 50,
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
-            migrationBuilder.AddColumn<int>(
-                name: "TopicChoice",
+            migrationBuilder.AddColumn<string>(
+                name: "SpeakerThree",
                 table: "Meeting",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
+                type: "nvarchar(50)",
+                maxLength: 50,
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "SpeakerOne",
+                name: "SpeakerFour",
                 table: "Meeting");
 
             migrationBuilder.DropColumn(
-                name: "TopicChoice",
+                name: "SpeakerThree",
                 table: "Meeting");
         }
     }

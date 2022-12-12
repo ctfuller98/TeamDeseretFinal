@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SacramentMeetingPlanner.Migrations
 {
-    public partial class members : Migration
+    public partial class BrokenDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,7 +22,9 @@ namespace SacramentMeetingPlanner.Migrations
                     RestHymnNumber = table.Column<int>(type: "int", nullable: true),
                     ClosingHymn = table.Column<int>(type: "int", nullable: false),
                     OpeningPrayer = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ClosingPrayer = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    ClosingPrayer = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    SpeakerOne = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    TopicChoice = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

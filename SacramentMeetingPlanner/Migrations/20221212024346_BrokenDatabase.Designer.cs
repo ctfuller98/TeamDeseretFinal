@@ -12,8 +12,8 @@ using SacramentMeetingPlanner.Data;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    [Migration("20221210200630_addingICollection")]
-    partial class addingICollection
+    [Migration("20221212024346_BrokenDatabase")]
+    partial class BrokenDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,12 +48,6 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<DateTime>("MeetingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MeetingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("int");
-
                     b.Property<int>("OpeningHymnNumber")
                         .HasColumnType("int");
 
@@ -68,9 +62,14 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<int>("SacramentHymnNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("SpeakerOne")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.HasIndex("MemberId");
+                    b.Property<int>("TopicChoice")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Meeting");
                 });
@@ -93,12 +92,6 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int?>("MeetingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("int");
-
                     b.Property<int>("MemberTitle")
                         .HasColumnType("int");
 
@@ -107,32 +100,7 @@ namespace SacramentMeetingPlanner.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("MeetingId");
-
                     b.ToTable("Member");
-                });
-
-            modelBuilder.Entity("SacramentMeetingPlanner.Models.Meeting", b =>
-                {
-                    b.HasOne("SacramentMeetingPlanner.Models.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Member");
-                });
-
-            modelBuilder.Entity("SacramentMeetingPlanner.Models.Member", b =>
-                {
-                    b.HasOne("SacramentMeetingPlanner.Models.Meeting", null)
-                        .WithMany("Members")
-                        .HasForeignKey("MeetingId");
-                });
-
-            modelBuilder.Entity("SacramentMeetingPlanner.Models.Meeting", b =>
-                {
-                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }

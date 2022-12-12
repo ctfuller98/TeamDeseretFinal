@@ -21,11 +21,18 @@ namespace SacramentMeetingPlanner.Pages.Meetings
 
         public IList<Meeting> Meeting { get;set; } = default!;
 
+        public IList<Member> Member { get;set; }
+
         public async Task OnGetAsync()
         {
             if (_context.Meeting != null)
             {
                 Meeting = await _context.Meeting.ToListAsync();
+            }
+
+            if (_context.Meeting != null)
+            {
+                Member = await _context.Member.ToListAsync();
             }
         }
     }

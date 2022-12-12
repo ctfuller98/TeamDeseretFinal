@@ -59,6 +59,9 @@
 
             <div class="buttons">
                 <a class="showSingle" target="1">Do you have a speaker?</a>
+                <a class="showSingle" target="2">Speaker Two?</a>
+                <a class="showSingle" target="3">Speaker Three?</a>
+                <a class="showSingle" target="4">Speaker Four?</a>
             </div>
 
             <div id="div1" class="targetDiv">
@@ -74,7 +77,28 @@
                     <span asp-validation-for="Meeting.TopicChoice" class="text-danger"></span>
                 </div>
             </div>
+            <div id="div2" class="targetDiv">
+                <div class="form-group">
+                    <label asp-for="Meeting.SpeakerTwo" class="control-label"></label>
+                    <input asp-for="Meeting.SpeakerTwo" class="form-control" value="No Speaker" />
+                    <span asp-validation-for="Meeting.SpeakerTwo" class="text-danger"></span>
+                </div>
+            </div>
 
+            <div id="div3" class="targetDiv">
+                <div class="form-group">
+                    <label asp-for="Meeting.SpeakerThree" class="control-label"></label>
+                    <input asp-for="Meeting.SpeakerThree" class="form-control" value="No Speaker" />
+                    <span asp-validation-for="Meeting.SpeakerThree" class="text-danger"></span>
+                </div>
+            </div>
+            <div id="div4" class="targetDiv">
+                <div class="form-group">
+                    <label asp-for="Meeting.SpeakerFour" class="control-label"></label>
+                    <input asp-for="Meeting.SpeakerFour" class="form-control" value="No Speaker" />
+                    <span asp-validation-for="Meeting.SpeakerFour" class="text-danger"></span>
+                </div>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

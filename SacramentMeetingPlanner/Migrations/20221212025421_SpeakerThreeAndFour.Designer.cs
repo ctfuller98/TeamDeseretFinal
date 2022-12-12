@@ -12,8 +12,8 @@ using SacramentMeetingPlanner.Data;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    [Migration("20221208203651_members")]
-    partial class members
+    [Migration("20221212025421_SpeakerThreeAndFour")]
+    partial class SpeakerThreeAndFour
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,6 +60,25 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("SacramentHymnNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SpeakerFour")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SpeakerOne")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SpeakerThree")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SpeakerTwo")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("TopicChoice")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

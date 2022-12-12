@@ -60,6 +60,25 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<int>("SacramentHymnNumber")
                         .HasColumnType("int");
 
+                    b.Property<string>("SpeakerFour")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SpeakerOne")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SpeakerThree")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SpeakerTwo")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("TopicChoice")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Meeting");
