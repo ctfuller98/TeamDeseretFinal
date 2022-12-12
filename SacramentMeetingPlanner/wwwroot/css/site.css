@@ -19,6 +19,7 @@ body {
 
 #sleepy {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 h1 {
     margin-top: 1.5rem;
@@ -71,12 +72,18 @@ h1 {
     }
     #title::before {
         content: "Speaker Title: ";
-        
     }
+
     body {
         font-size: 20px;
     }
-   
+
+    /*#create-meeting-btn {
+        display: grid;
+        justify-content: center;
+    }*/
+
+
 
 }
 
