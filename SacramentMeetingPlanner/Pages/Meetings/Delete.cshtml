@@ -60,22 +60,56 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Meeting.ClosingPrayer)
         </dd>
+        @*Speaker One*@
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Meeting.SpeakerOne) One
+            @Html.DisplayNameFor(model => model.Meeting.SpeakerOne)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Meeting.SpeakerOne) <br />
-            @Html.DisplayFor(model => model.Meeting.SpeakerTwo) <br />
-            @Html.DisplayFor(model => model.Meeting.SpeakerThree) <br />
-            @Html.DisplayFor(model => model.Meeting.SpeakerFour)
+            @Html.DisplayFor(model => model.Meeting.SpeakerOne)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Meeting.TopicChoice)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Meeting.TopicChoice) <br />
-            @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo) <br />
-            @Html.DisplayFor(model => model.Meeting.TopicChoiceThree) <br />
+            @Html.DisplayFor(model => model.Meeting.TopicChoice)
+        </dd>
+        @*Speaker Two*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.SpeakerTwo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.SpeakerTwo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.TopicChoiceTwo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)
+        </dd>
+        @*Speaker Three*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.SpeakerThree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.SpeakerThree)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.TopicChoiceThree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.TopicChoiceThree)
+        </dd>
+        @*Speaker Four*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.SpeakerFour)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.SpeakerFour)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.TopicChoiceFour)
+        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Meeting.TopicChoiceFour)
         </dd>
     </dl>
