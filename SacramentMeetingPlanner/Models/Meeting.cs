@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
 namespace SacramentMeetingPlanner.Models
@@ -58,10 +59,9 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Speaker One")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(50, MinimumLength = 3)]
-        [Required]
         public string? SpeakerOne { get; set; }
 
         [Display(Name = "Topic")]
-        public Topic TopicChoice { get; set; }
+        public Topic TopicChoice { get; set; } = 0;
     }
 }

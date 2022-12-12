@@ -64,12 +64,13 @@
             <div id="div1" class="targetDiv">
                 <div class="form-group">
                     <label asp-for="Meeting.SpeakerOne" class="control-label"></label>
-                    <input asp-for="Meeting.SpeakerOne" class="form-control" />
+                    <input asp-for="Meeting.SpeakerOne" class="form-control" value="No Speaker" />
                     <span asp-validation-for="Meeting.SpeakerOne" class="text-danger"></span>
                 </div>
                 <div>
                     <label asp-for="Meeting.TopicChoice" class="control-label"></label>
-                    @Html.DropDownList("Meeting.TopicChoice", Html.GetEnumSelectList<Topic>(), "Select Topic",new { @class = "form-control mb-2" })
+                    @*@Html.DropDownList("Meeting.TopicChoice", Html.GetEnumSelectList<Topic>(), "Select Topic", new { @class = "form-control mb-2" })*@
+                    @Html.DropDownListFor(model => model.Meeting.TopicChoice,Enum.GetNames(typeof(Models.Topic)).Select(e => new SelectListItem { Text = e }),new { @class = "form-control"})
                     <span asp-validation-for="Meeting.TopicChoice" class="text-danger"></span>
                 </div>
             </div>
