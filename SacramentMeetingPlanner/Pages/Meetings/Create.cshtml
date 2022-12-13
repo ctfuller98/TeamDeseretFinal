@@ -70,13 +70,13 @@
             <div id="div1" class="targetDiv">
                 <div class="form-group">
                     <label asp-for="Meeting.SpeakerOne" class="control-label"></label>
-                    <select asp-for="Meeting.SpeakerOne" class="form-control" asp-items="Model.Members">
+                    <select asp-for="Meeting.SpeakerOne" class="form-select" asp-items="Model.Members">
                         <option value="No Speaker"></option>
                     </select>
                     <span asp-validation-for="Meeting.SpeakerOne" class="text-danger"></span>
                     <div class="form-group">
                         <label asp-for="Meeting.TopicChoice" class="control-label"></label>
-                        @Html.DropDownList("Meeting.TopicChoice", Html.GetEnumSelectList<Topic>(), new { @class = "form-control mb-2" })
+                        @Html.DropDownList("Meeting.TopicChoice", Html.GetEnumSelectList<Topic>(), new { @class = "form-select mb-2" })
                         <span asp-validation-for="Meeting.TopicChoice" class="text-danger"></span>
                     </div>
                     <a class="showSingle btn btn-info" target="2">Add/Remove Speaker</a>
@@ -86,14 +86,14 @@
                     <div id="div2" class="targetDiv">
                         <div class="form-group">
                             <label asp-for="Meeting.SpeakerTwo" class="control-label">Speaker Two</label>
-                            <select asp-for="Meeting.SpeakerTwo" class="form-control" asp-items="Model.Members">
+                            <select asp-for="Meeting.SpeakerTwo" class="form-select" asp-items="Model.Members">
                                 <option value="No Speaker"></option>
                             </select>
                             <span asp-validation-for="Meeting.SpeakerTwo" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Meeting.TopicChoiceTwo" class="control-label">Topic</label>
-                            @Html.DropDownList("Meeting.TopicChoiceTwo", Html.GetEnumSelectList<Topic>(), new { @class = "form-control mb-2" })
+                            @Html.DropDownList("Meeting.TopicChoiceTwo", Html.GetEnumSelectList<Topic>(), new { @class = "form-select mb-2" })
                             <span asp-validation-for="Meeting.TopicChoiceTwo" class="text-danger"></span>
                         </div>
                         <a class="showSingle btn btn-info" target="3">Add/Remove Speaker</a>
@@ -102,13 +102,13 @@
                     <div id="div3" class="targetDiv">
                         <div class="form-group">
                             <label asp-for="Meeting.SpeakerThree" class="control-label">Speaker Three</label>
-                            <select asp-for="Meeting.SpeakerThree" class="form-control" asp-items="Model.Members">
+                            <select asp-for="Meeting.SpeakerThree" class="form-select" asp-items="Model.Members">
                                 <option value="No Speaker"></option>
                             </select>
                             <span asp-validation-for="Meeting.SpeakerThree" class="text-danger"></span>
                             <div>
                                 <label asp-for="Meeting.TopicChoiceThree" class="control-label">Topic</label>
-                                @Html.DropDownList("Meeting.TopicChoiceThree", Html.GetEnumSelectList<Topic>(), new { @class = "form-control mb-2" })
+                                @Html.DropDownList("Meeting.TopicChoiceThree", Html.GetEnumSelectList<Topic>(), new { @class = "form-select mb-2" })
                                 <span asp-validation-for="Meeting.TopicChoiceThree" class="text-danger"></span>
                             </div>
                             <a class="showSingle btn btn-info" target="4">Add/Remove Speaker</a>
@@ -118,14 +118,14 @@
                     <div id="div4" class="targetDiv">
                         <div class="form-group">
                             <label asp-for="Meeting.SpeakerFour" class="control-label">Speaker Four</label>
-                            <select asp-for="Meeting.SpeakerFour" class="form-control" asp-items="Model.Members">
+                            <select asp-for="Meeting.SpeakerFour" class="form-select" asp-items="Model.Members">
                                 <option value="No Speaker"></option>
                             </select>
                             <span asp-validation-for="Meeting.SpeakerFour" class="text-danger"></span>
                         </div>
                         <div>
                             <label asp-for="Meeting.TopicChoiceFour" class="control-label">Topic</label>
-                            @Html.DropDownList("Meeting.TopicChoiceFour", Html.GetEnumSelectList<Topic>(), new { @class = "form-control mb-2" })
+                            @Html.DropDownList("Meeting.TopicChoiceFour", Html.GetEnumSelectList<Topic>(), new { @class = "form-select mb-2" })
                             <span asp-validation-for="Meeting.TopicChoiceFour" class="text-danger"></span>
                         </div>
                     </div>

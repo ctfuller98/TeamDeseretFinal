@@ -25,12 +25,13 @@ namespace SacramentMeetingPlanner.Pages.Meetings
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            //var memberQuery = from m in _context.Member orderby m.LastName select m.FullName;
-            //Members = new SelectList(await memberQuery.ToListAsync());
+
+            var memberQuery = from m in _context.Member orderby m.LastName select m.FullName;
+            Members = new SelectList(await memberQuery.ToListAsync());
 
 
-            //var memberCallingQuery = from m in _context.Member orderby m.LastName select m.CallingAndName;
-            //CallingMembers = new SelectList(await memberCallingQuery.ToListAsync());
+            var memberCallingQuery = from m in _context.Member orderby m.LastName select m.CallingAndName;
+            CallingMembers = new SelectList(await memberCallingQuery.ToListAsync());
 
 
             if (id == null || _context.Meeting == null)
@@ -43,14 +44,31 @@ namespace SacramentMeetingPlanner.Pages.Meetings
             {
                 return NotFound();
             }
+
+
             Meeting = meeting;
             return Page();
         }
-        
+        public SelectList? Members { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string? MemberList { get; set; }
+
+        //Members with Callings
+        public Meeting CallingMeeting { get; set; }
+        public SelectList? CallingMembers { get; set; }
+
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            var memberQuery = from m in _context.Member orderby m.LastName select m.FullName;
+            Members = new SelectList(await memberQuery.ToListAsync());
+
+
+            var memberCallingQuery = from m in _context.Member orderby m.LastName select m.CallingAndName;
+            CallingMembers = new SelectList(await memberCallingQuery.ToListAsync());
+
+
             if (!ModelState.IsValid)
             {
                 return Page();
