@@ -6,74 +6,123 @@
 }
 
 <h1>Meeting Details</h1>
-<div class="card w-75">
-    <div class="card-header text-center fw-bold">
+<div class="card w-75" id="program">
+    <div class="card-header text-center fw-bold" id="date">
         @Html.DisplayNameFor(model => model.Meeting.MeetingDate) - @Html.DisplayFor(model => model.Meeting.MeetingDate)
     </div>
-    <div class="card-body">
+    <div class="print-date">
         <dl class="row mb-0">
+            <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.MeetingDate)</dt>
+            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.MeetingDate)</dd>
+        </dl>
+       
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0" >
             <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.Conductor)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.Conductor)</dd>
+            <dd class="col-sm-7 text-sm-end" id="conductor">@Html.DisplayFor(model => model.Meeting.Conductor)</dd>
         </dl>
         <dl class="row mb-0">
             <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.OpeningHymnNumber)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.OpeningHymnNumber)</dd>
+            <dd class="col-sm-7 text-sm-end" id="oh">@Html.DisplayFor(model => model.Meeting.OpeningHymnNumber)</dd>
         </dl>
         <dl class="row mb-0">
             <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.OpeningPrayer)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.OpeningPrayer)</dd>
+            <dd class="col-sm-7 text-sm-end" id="op">@Html.DisplayFor(model => model.Meeting.OpeningPrayer)</dd>
         </dl>
         <dl class="row mb-0">
             <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SacramentHymnNumber)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SacramentHymnNumber)</dd>
+            <dd class="col-sm-7 text-sm-end" id="sh">@Html.DisplayFor(model => model.Meeting.SacramentHymnNumber)</dd>
         </dl>
         <dl class="row">
-            <dt class="col-12 text-center my-1">Administration of the Sacrament</dt>
+            <dt class="col-12 text-center my-1" id="administration">Administration of the Sacrament</dt>
         </dl>
-        @if (Model.Meeting.SpeakerOne == "Fast Sunday"){
-            <dl class="row mb-0">
-            <dt class="col-12 text-center">Bearing of Testimonies</dt>
-        </dl>
-        } else {
-            <dl class="row mb-0">
-                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerOne) - @Html.DisplayFor(model => model.Meeting.TopicChoice)</dd>
-            </dl>
-        }
-        @if (Model.Meeting.SpeakerTwo != "")
-        {
-            <dl class="row mb-0">
-                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerTwo) - @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)</dd>
-        </dl>
-        }
-        @if (Model.Meeting.SpeakerThree != "")
-        {
-            <dl class="row mb-0">
-                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerThree) - @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)</dd>
-        </dl>
-        }
-        @if (Model.Meeting.SpeakerFour != "")
-        {
-            <dl class="row mb-0">
-                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerFour) - @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)</dd>
-        </dl>
-        }
+        <div class="speakers">
+            @if (Model.Meeting.SpeakerOne == "Fast Sunday")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-12 text-center">Bearing of Testimonies</dt>
+                </dl>
+            }
+            else
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end" id="speaker">@Html.DisplayFor(model => model.Meeting.SpeakerOne)</dd>
+                </dl>
+            }
+            @if (Model.Meeting.SpeakerTwo != "No Speaker")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end" id="speaker2">@Html.DisplayFor(model => model.Meeting.SpeakerTwo)</dd>
+                </dl>
+            }
+            @if (Model.Meeting.SpeakerThree != "No Speaker")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerThree)</dd>
+                </dl>
+            }
+            @if (Model.Meeting.SpeakerFour != "No Speaker")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerFour)</dd>
+                </dl>
+            }
+        </div>
+        <div class="no-print">
+            @if (Model.Meeting.SpeakerOne == "Fast Sunday")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-12 text-center">Bearing of Testimonies</dt>
+                </dl>
+            }
+            else
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end" id="speaker">@Html.DisplayFor(model => model.Meeting.SpeakerOne) - @Html.DisplayFor(model => model.Meeting.TopicChoice)</dd>
+                </dl>
+            }
+            @if (Model.Meeting.SpeakerTwo != "No Speaker")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end" id="speaker2">@Html.DisplayFor(model => model.Meeting.SpeakerTwo) - @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)</dd>
+                </dl>
+            }
+            @if (Model.Meeting.SpeakerThree != "No Speaker")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerThree) - @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)</dd>
+                </dl>
+            }
+            @if (Model.Meeting.SpeakerFour != "No Speaker")
+            {
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Meeting.SpeakerOne)</dt>
+                    <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => model.Meeting.SpeakerFour) - @Html.DisplayFor(model => model.Meeting.TopicChoiceTwo)</dd>
+                </dl>
+            }
+        </div>
+        
         <dl class="row mb-0">
             <dt class="col-sm-5">@Html.DisplayNameFor(model => Model.Meeting.ClosingHymn)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => Model.Meeting.ClosingHymn)</dd>
+            <dd class="col-sm-7 text-sm-end" id="ch">@Html.DisplayFor(model => Model.Meeting.ClosingHymn)</dd>
         </dl>
         <dl class="row mb-0">
             <dt class="col-sm-5">@Html.DisplayNameFor(model => Model.Meeting.ClosingPrayer)</dt>
-            <dd class="col-sm-7 text-sm-end">@Html.DisplayFor(model => Model.Meeting.ClosingPrayer)</dd>
+            <dd class="col-sm-7 text-sm-end" id="cp">@Html.DisplayFor(model => Model.Meeting.ClosingPrayer)</dd>
         </dl>
     </div>
-    <div class="card-footer text-end">
+    <div class="card-footer text-end" id="links">
         <div class="btn-group btn-group-sm">
             <a class="btn btn-warning text-light" asp-page="./Edit" asp-route-id="@Model.Meeting?.Id"><i class="bi-pencil"></i> Edit</a>
-            <a class="btn btn-info" asp-page="" asp-route-id=""><i class="bi-list-ul"></i> Print</a>
+            <a class="btn btn-info" onclick="window.print();return false;" ><i class="bi-list-ul"></i> Print</a>
             <a class ="btn btn-secondary" asp-page="./Index"><i class="bi bi-arrow-left-square"></i> Meeting List</a>
      
         </div>

@@ -4,13 +4,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Deseret Ward</h1>
+<div class="w-100 d-flex justify-content-between align-items-center">
+<h1 class="mt-0">Deseret Ward</h1>
+<a class="btn btn-success my-3" asp-page="/Meetings/Create"><i class="bi-plus-lg"></i> Add New Member</a>
+</div>
 <h4>Members</h4>
 
-<p>
-    <a asp-page="Create" class="btn btn-primary">Create New</a>
-</p>
+
 <table class="table table-striped">
     <thead>
         <tr>
